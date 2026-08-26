@@ -3,6 +3,7 @@ package com.aziz.Students.Managment.System.controller;
 import com.aziz.Students.Managment.System.entity.Student;
 import com.aziz.Students.Managment.System.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,6 +19,10 @@ public class StudentController {
     @PostMapping
     public Student saveStudent(@RequestBody Student student) {
         return studentService.saveStudent(student);
+    }
+    @GetMapping("/search")
+    public ResponseEntity<List<Student>> searchStudents(@RequestParam String name) {
+        return ResponseEntity.ok(studentService.searchStudentsByName(name));
     }
 
     // Get All Students

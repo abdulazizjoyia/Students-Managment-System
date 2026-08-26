@@ -9,6 +9,10 @@ import java.util.List;
 
 @Service
 public class StudentServiceImpl implements StudentService {
+    @Override
+    public List<Student> searchStudentsByName(String name) {
+        return studentRepository.findByNameContainingIgnoreCase(name);
+    }
 
     @Autowired
     private StudentRepository studentRepository;
