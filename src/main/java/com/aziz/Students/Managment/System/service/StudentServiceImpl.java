@@ -52,4 +52,10 @@ public class StudentServiceImpl implements StudentService {
     public void deleteStudent(Long id) {
         studentRepository.deleteById(id);
     }
+
+
+    @Override
+    public List<Student> getStudentsByCourse(String course) {
+        return studentRepository.findByCourse(course);
+    }
 }

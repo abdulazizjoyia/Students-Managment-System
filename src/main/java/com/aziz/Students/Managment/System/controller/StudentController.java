@@ -24,6 +24,14 @@ public class StudentController {
     public ResponseEntity<List<Student>> searchStudents(@RequestParam String name) {
         return ResponseEntity.ok(studentService.searchStudentsByName(name));
     }
+    @GetMapping("/course/{course}")
+    public ResponseEntity<List<Student>> getStudentsByCourse(
+            @PathVariable String course) {
+
+        return ResponseEntity.ok(
+                studentService.getStudentsByCourse(course)
+        );
+    }
 
     // Get All Students
     @GetMapping
