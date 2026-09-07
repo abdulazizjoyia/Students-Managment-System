@@ -1,7 +1,7 @@
 package com.aziz.Students.Managment.System.entity;
 
 import jakarta.persistence.*;
-
+import jakarta.validation.constraints.Email;
 @Entity
 @Table(name = "students")
 public class Student {
@@ -13,6 +13,7 @@ public class Student {
     @Column(nullable = false)
     private String name;
 
+    @Email(message = "Please provide a valid email address")
     @Column(nullable = false, unique = true)
     private String email;
 
