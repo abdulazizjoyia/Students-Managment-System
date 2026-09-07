@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api/students")
 public class StudentController {
@@ -17,7 +19,7 @@ public class StudentController {
 
     // Save Student
     @PostMapping
-    public Student saveStudent(@RequestBody Student student) {
+    public Student saveStudent(@Valid @RequestBody Student student) {
         return studentService.saveStudent(student);
     }
     @GetMapping("/search")
