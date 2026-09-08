@@ -2,6 +2,7 @@ package com.aziz.Students.Managment.System.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Pattern;
 @Entity
 @Table(name = "students")
 public class Student {
@@ -16,6 +17,10 @@ public class Student {
     @Email(message = "Please provide a valid email address")
     @Column(nullable = false, unique = true)
     private String email;
+    @Pattern(
+            regexp = "^03[0-9]{9}$",
+            message = "Phone number must be a valid Pakistani mobile number"
+    )
 
     private String phone;
 
