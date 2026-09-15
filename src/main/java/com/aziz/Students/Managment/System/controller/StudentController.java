@@ -5,6 +5,8 @@ import com.aziz.Students.Managment.System.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -31,6 +33,10 @@ public class StudentController {
     @GetMapping
     public List<Student> getAllStudents() {
         return studentService.getAllStudents();
+    }
+    @GetMapping("/page")
+    public Page<Student> getStudentsWithPagination(Pageable pageable) {
+        return studentService.getAllStudents(pageable);
     }
 
     // Get Student By Id
